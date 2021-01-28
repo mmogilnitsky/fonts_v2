@@ -1,0 +1,60 @@
+{
+    "creationTimestamp": "2021-01-27T19:04:47.240939",
+    "version": "2.1",
+    "fonts": [
+        {
+            "font-family": "Gothic A1",
+            "font-style": "normal",
+            "font-weight": "900",
+            "src": "/fonts/v2/Gothic_A1/GothicA1-Black.ttf"
+        },
+        {
+            "font-family": "Gothic A1",
+            "font-style": "normal",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Gothic_A1/GothicA1-Bold.ttf"
+        },
+        {
+            "font-family": "Gothic A1",
+            "font-style": "normal",
+            "font-weight": "800",
+            "src": "/fonts/v2/Gothic_A1/GothicA1-ExtraBold.ttf"
+        },
+        {
+            "font-family": "Gothic A1",
+            "font-style": "normal",
+            "font-weight": "275",
+            "src": "/fonts/v2/Gothic_A1/GothicA1-ExtraLight.ttf"
+        },
+        {
+            "font-family": "Gothic A1",
+            "font-style": "normal",
+            "font-weight": "300",
+            "src": "/fonts/v2/Gothic_A1/GothicA1-Light.ttf"
+        },
+        {
+            "font-family": "Gothic A1",
+            "font-style": "normal",
+            "font-weight": "500",
+            "src": "/fonts/v2/Gothic_A1/GothicA1-Medium.ttf"
+        },
+        {
+            "font-family": "Gothic A1",
+            "font-style": "normal",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Gothic_A1/GothicA1-Regular.ttf"
+        },
+        {
+            "font-family": "Gothic A1",
+            "font-style": "normal",
+            "font-weight": "600",
+            "src": "/fonts/v2/Gothic_A1/GothicA1-SemiBold.ttf"
+        },
+        {
+            "font-family": "Gothic A1",
+            "font-style": "normal",
+            "font-weight": "250",
+            "src": "/fonts/v2/Gothic_A1/GothicA1-Thin.ttf"
+        }
+    ]
+}
