@@ -8,6 +8,9 @@ import datetime, io, sys, getopt, json, os
 from fontTools import ttLib
 from collections import OrderedDict
 
+def removePrefix(text, prefix):
+    return text[text.startswith(prefix) and len(prefix):].strip('/')
+
 def getFamily(fRec):
     typoFamilyName = fRec['name'].getName(16, 3, 1, 1033)
     familyName = fRec['name'].getName(1, 3, 1, 1033) # FONT_SPECIFIER_FAMILY_ID=1, platformID, platEncID, langID
@@ -28,7 +31,7 @@ def getWeight(rPath, ttf, fRec):
     name = getName(fRec).toUnicode().lower() # FONT_NAME_SPECIFIER_ID=4, platformID, platEncID, langID
     weight = fRec['OS/2'].usWeightClass
     weight = 'normal' if 400 == weight else 'bold' if 700 == weight else str(weight)
-    fName = ttf.lstrip(rPath)
+    fName = removePrefix(ttf, rPath)
     if weight == 'normal' and not ('regular' in name.lower() or 'italic' in name.lower() or 'regular' in fName.lower() or 'italic' in fName.lower()):
         print "Error with", ttf, "No Regular tag in font name", name, 'or file name', fName
         return -1
@@ -47,13 +50,13 @@ def processFiles(opts, jsonData, ttfs):
             font["font-family"] = getFamily(fRec)
             font["font-style"] = getStyle(fRec)
             font["font-weight"] = getWeight(rPath, ttf, fRec)
-            font["src"] = "/fonts/v2/" + ttf.lstrip(rPath)       
+            font["src"] = os.path.join("/fonts/v2/", removePrefix(ttf, rPath))
             for key in font:
                 if font[key] < 0:
                     return False
-            jsonData['fonts'].append(font) 
-            #print json.dumps(jsonData, indent=4, separators=(',', ': ')) 
-            #sys.exit(-1)  
+            jsonData['fonts'].append(font)
+            #print json.dumps(jsonData, indent=4, separators=(',', ': '))
+            #sys.exit(-1)
     return True
 
 def checkOpts(opts):
@@ -72,7 +75,7 @@ def scanTTFs(opts, rPath):
         return [os.path.join(rPath, ttf) for ttf in ttfs]
     for ttf in ttfs:
         os.rename(os.path.join(rPath, ttf), os.path.join(rPath, ttf.replace(' ', '+')))
-    ttfs = [tff for tff in os.listdir(rPath) if tff.endswith('.ttf')]            
+    ttfs = [tff for tff in os.listdir(rPath) if tff.endswith('.ttf')]
     return [os.path.join(rPath, ttf) for ttf in ttfs]
 
 def collectAndFixttfs(opts):
@@ -84,11 +87,11 @@ def collectAndFixttfs(opts):
     if not opts["recursive"]:
         return True, ttfs
     for root, dirs, files in os.walk(rPath):
-        dName = root.lstrip(rPath)        
-        if ' ' in dName:                    
+        dName = removePrefix(root, rPath)
+        if ' ' in dName:
             os.rename(dr, os.path.join(rPath, dName.replace(' ', '+')))
     for root, dirs, files in os.walk(rPath):
-        ttfs += scanTTFs(opts, root) 
+        ttfs += scanTTFs(opts, root)
     return True, ttfs
 
 def dumpJson(opts, jsonData):
@@ -107,15 +110,15 @@ def dumpJson(opts, jsonData):
 
 def process(opts):
     print "Processing paramters:"
-    print json.dumps(opts, sort_keys=False, indent=4, separators=(',', ': '))    
+    print json.dumps(opts, sort_keys=False, indent=4, separators=(',', ': '))
     isOk, ttfs = collectAndFixttfs(opts)
     if not isOk:
         return False
     jsonData = OrderedDict()
     jsonData["creationTimestamp"] = datetime.datetime.now().isoformat()
     jsonData["version"] = opts["version"]
-    jsonData["fonts"] = []    
-    #print json.dumps(jsonData, indent=4, separators=(',', ': ')) 
+    jsonData["fonts"] = []
+    #print json.dumps(jsonData, indent=4, separators=(',', ': '))
     #sys.exit(-1)
     if not processFiles(opts, jsonData, ttfs):
         return False
@@ -123,7 +126,7 @@ def process(opts):
 
 def help():
     print 'v2.py <flag> <parameter if any> ...'
-    print '-h                       this help.'    
+    print '-h                       this help.'
     print '-d <directory name>      process the given directory. Do not go in nesting ones.'
     print '-c <directory name>      process the given directory. Do not go in nesting ones. Fix file names as needed - default.'
     print '-r <directory name>      process the given directory. Process recursively the ones. No fixing.'
@@ -158,12 +161,12 @@ def main(argv):
         elif opt in ("-d", "--correct"):
             opts["dirName"] = arg
             opts["recursive"] = False
-        elif opt in ("-r", "--recursive"):          
+        elif opt in ("-r", "--recursive"):
             opts["dirName"] = arg
-            opts["fixNames"] = False            
-        elif opt in ("-x", "--fix"):          
+            opts["fixNames"] = False
+        elif opt in ("-x", "--fix"):
             opts["dirName"] = arg
-        elif opt in ("-o", "--jsonfile"):          
+        elif opt in ("-o", "--jsonfile"):
             opts["jsonFileName"] = arg
         elif opt in ("-f", "--forceJsonFile"):
             opts["jsonFileName"] = arg
@@ -171,7 +174,7 @@ def main(argv):
         elif opt in ("-e", "--jsonFileVersion"):
             opts["version"] = arg
         else:
-            print "unsupported flag:", opt 
+            print "unsupported flag:", opt
     return process(opts)
 
 if __name__ == "__main__":
