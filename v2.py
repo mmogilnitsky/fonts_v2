@@ -47,6 +47,7 @@ def processFiles(opts, jsonData, ttfs):
         with ttLib.TTFont(ttf) as fRec:
             print "Processing:", getName(fRec)
             font = OrderedDict()
+            font["creationTimestamp"] = datetime.datetime.now().isoformat()
             font["font-family"] = getFamily(fRec)
             font["font-style"] = getStyle(fRec)
             font["font-weight"] = getWeight(rPath, ttf, fRec)
@@ -57,7 +58,7 @@ def processFiles(opts, jsonData, ttfs):
             jsonData['fonts'].append(font)
             #print json.dumps(jsonData, indent=4, separators=(',', ': '))
             #sys.exit(-1)
-        shutil.copy2(ttf, rPath)
+        #shutil.copy2(ttf, rPath)
     return True
 
 def checkOpts(opts):
