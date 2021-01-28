@@ -4,7 +4,7 @@
 # http://www.starrhorne.com/2012/01/18/how-to-extract-font-names-from-ttf-files-using-python-and-our-old-friend-the-command-line.html
 # https://www.programcreek.com/python/example/92803/fontTools.ttLib.TTFont
 
-import datetime, io, sys, getopt, json, os
+import datetime, io, sys, getopt, json, os, shutil
 from fontTools import ttLib
 from collections import OrderedDict
 
@@ -57,6 +57,7 @@ def processFiles(opts, jsonData, ttfs):
             jsonData['fonts'].append(font)
             #print json.dumps(jsonData, indent=4, separators=(',', ': '))
             #sys.exit(-1)
+        shutil.copy2(ttf, rPath)
     return True
 
 def checkOpts(opts):
