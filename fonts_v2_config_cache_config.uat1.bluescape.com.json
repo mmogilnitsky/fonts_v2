@@ -1,60 +1,306 @@
 {
-    "creationTimestamp": "2021-01-27T19:04:47.240939",
+    "creationTimestamp": "2021-01-27T19:35:45.559541",
     "version": "2.1",
     "fonts": [
         {
-            "font-family": "Gothic A1",
-            "font-style": "normal",
-            "font-weight": "900",
-            "src": "/fonts/v2/Gothic_A1/GothicA1-Black.ttf"
-        },
-        {
-            "font-family": "Gothic A1",
+            "font-family": "Aleo",
             "font-style": "normal",
             "font-weight": "bold",
-            "src": "/fonts/v2/Gothic_A1/GothicA1-Bold.ttf"
+            "src": "/fonts/v2/Aleo/Aleo-Bold.ttf"
         },
         {
-            "font-family": "Gothic A1",
-            "font-style": "normal",
-            "font-weight": "800",
-            "src": "/fonts/v2/Gothic_A1/GothicA1-ExtraBold.ttf"
+            "font-family": "Aleo",
+            "font-style": "italic",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Aleo/Aleo-BoldItalic.ttf"
         },
         {
-            "font-family": "Gothic A1",
-            "font-style": "normal",
-            "font-weight": "275",
-            "src": "/fonts/v2/Gothic_A1/GothicA1-ExtraLight.ttf"
+            "font-family": "Aleo",
+            "font-style": "italic",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Aleo/Aleo-Italic.ttf"
         },
         {
-            "font-family": "Gothic A1",
-            "font-style": "normal",
-            "font-weight": "300",
-            "src": "/fonts/v2/Gothic_A1/GothicA1-Light.ttf"
-        },
-        {
-            "font-family": "Gothic A1",
-            "font-style": "normal",
-            "font-weight": "500",
-            "src": "/fonts/v2/Gothic_A1/GothicA1-Medium.ttf"
-        },
-        {
-            "font-family": "Gothic A1",
+            "font-family": "Aleo",
             "font-style": "normal",
             "font-weight": "normal",
-            "src": "/fonts/v2/Gothic_A1/GothicA1-Regular.ttf"
+            "src": "/fonts/v2/Aleo/Aleo-Regular.ttf"
         },
         {
-            "font-family": "Gothic A1",
+            "font-family": "Barlow Semi Condensed",
             "font-style": "normal",
-            "font-weight": "600",
-            "src": "/fonts/v2/Gothic_A1/GothicA1-SemiBold.ttf"
+            "font-weight": "bold",
+            "src": "/fonts/v2/Barlow_Semi_Condensed/BarlowSemiCondensed-Bold.ttf"
         },
         {
-            "font-family": "Gothic A1",
+            "font-family": "Barlow Semi Condensed",
+            "font-style": "italic",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Barlow_Semi_Condensed/BarlowSemiCondensed-BoldItalic.ttf"
+        },
+        {
+            "font-family": "Barlow Semi Condensed",
+            "font-style": "italic",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Barlow_Semi_Condensed/BarlowSemiCondensed-Italic.ttf"
+        },
+        {
+            "font-family": "Barlow Semi Condensed",
             "font-style": "normal",
-            "font-weight": "250",
-            "src": "/fonts/v2/Gothic_A1/GothicA1-Thin.ttf"
+            "font-weight": "normal",
+            "src": "/fonts/v2/Barlow_Semi_Condensed/BarlowSemiCondensed-Regular.ttf"
+        },
+        {
+            "font-family": "Cormorant Garamond",
+            "font-style": "normal",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Cormorant_Garamond/CormorantGaramond-Bold.ttf"
+        },
+        {
+            "font-family": "Cormorant Garamond",
+            "font-style": "italic",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Cormorant_Garamond/CormorantGaramond-BoldItalic.ttf"
+        },
+        {
+            "font-family": "Cormorant Garamond",
+            "font-style": "italic",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Cormorant_Garamond/CormorantGaramond-Italic.ttf"
+        },
+        {
+            "font-family": "Cormorant Garamond",
+            "font-style": "normal",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Cormorant_Garamond/CormorantGaramond-Regular.ttf"
+        },
+        {
+            "font-family": "Dosis",
+            "font-style": "normal",
+            "font-weight": "bold",
+            "src": "/fonts/v2/-Bold.ttf"
+        },
+        {
+            "font-family": "Dosis",
+            "font-style": "normal",
+            "font-weight": "normal",
+            "src": "/fonts/v2/-Regular.ttf"
+        },
+        {
+            "font-family": "Josefin Slab",
+            "font-style": "normal",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Josefin_Slab/JosefinSlab-Bold.ttf"
+        },
+        {
+            "font-family": "Josefin Slab",
+            "font-style": "italic",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Josefin_Slab/JosefinSlab-BoldItalic.ttf"
+        },
+        {
+            "font-family": "Josefin Slab",
+            "font-style": "italic",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Josefin_Slab/JosefinSlab-Italic.ttf"
+        },
+        {
+            "font-family": "Josefin Slab",
+            "font-style": "normal",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Josefin_Slab/JosefinSlab-Regular.ttf"
+        },
+        {
+            "font-family": "Lato",
+            "font-style": "normal",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Lato/Lato-Bold.ttf"
+        },
+        {
+            "font-family": "Lato",
+            "font-style": "italic",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Lato/Lato-BoldItalic.ttf"
+        },
+        {
+            "font-family": "Lato",
+            "font-style": "italic",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Lato/Lato-Italic.ttf"
+        },
+        {
+            "font-family": "Lato",
+            "font-style": "normal",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Lato/Lato-Regular.ttf"
+        },
+        {
+            "font-family": "Montserrat",
+            "font-style": "normal",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Montserrat/Montserrat-Bold.ttf"
+        },
+        {
+            "font-family": "Montserrat",
+            "font-style": "italic",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Montserrat/Montserrat-BoldItalic.ttf"
+        },
+        {
+            "font-family": "Montserrat",
+            "font-style": "italic",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Montserrat/Montserrat-Italic.ttf"
+        },
+        {
+            "font-family": "Montserrat",
+            "font-style": "normal",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Montserrat/Montserrat-Regular.ttf"
+        },
+        {
+            "font-family": "Noto Serif",
+            "font-style": "normal",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Noto_Serif/NotoSerif-Bold.ttf"
+        },
+        {
+            "font-family": "Noto Serif",
+            "font-style": "italic",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Noto_Serif/NotoSerif-BoldItalic.ttf"
+        },
+        {
+            "font-family": "Noto Serif",
+            "font-style": "italic",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Noto_Serif/NotoSerif-Italic.ttf"
+        },
+        {
+            "font-family": "Noto Serif",
+            "font-style": "normal",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Noto_Serif/NotoSerif-Regular.ttf"
+        },
+        {
+            "font-family": "Open Sans",
+            "font-style": "normal",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Open_Sans/OpenSans-Bold.ttf"
+        },
+        {
+            "font-family": "Open Sans",
+            "font-style": "italic",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Open_Sans/OpenSans-BoldItalic.ttf"
+        },
+        {
+            "font-family": "Open Sans",
+            "font-style": "italic",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Open_Sans/OpenSans-Italic.ttf"
+        },
+        {
+            "font-family": "Open Sans",
+            "font-style": "normal",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Open_Sans/OpenSans-Regular.ttf"
+        },
+        {
+            "font-family": "Raleway",
+            "font-style": "normal",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Raleway/Raleway-Bold.ttf"
+        },
+        {
+            "font-family": "Raleway",
+            "font-style": "italic",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Raleway/Raleway-BoldItalic.ttf"
+        },
+        {
+            "font-family": "Raleway",
+            "font-style": "italic",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Raleway/Raleway-Italic.ttf"
+        },
+        {
+            "font-family": "Raleway",
+            "font-style": "normal",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Raleway/Raleway-Regular.ttf"
+        },
+        {
+            "font-family": "Source Code Pro",
+            "font-style": "normal",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Source_Code_Pro/SourceCodePro-Bold.ttf"
+        },
+        {
+            "font-family": "Source Code Pro",
+            "font-style": "italic",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Source_Code_Pro/SourceCodePro-BoldItalic.ttf"
+        },
+        {
+            "font-family": "Source Code Pro",
+            "font-style": "italic",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Source_Code_Pro/SourceCodePro-Italic.ttf"
+        },
+        {
+            "font-family": "Source Code Pro",
+            "font-style": "normal",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Source_Code_Pro/SourceCodePro-Regular.ttf"
+        },
+        {
+            "font-family": "Source Sans Pro",
+            "font-style": "normal",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Source_Sans_Pro/SourceSansPro-Bold.ttf"
+        },
+        {
+            "font-family": "Source Sans Pro",
+            "font-style": "italic",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Source_Sans_Pro/SourceSansPro-BoldItalic.ttf"
+        },
+        {
+            "font-family": "Source Sans Pro",
+            "font-style": "italic",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Source_Sans_Pro/SourceSansPro-Italic.ttf"
+        },
+        {
+            "font-family": "Source Sans Pro",
+            "font-style": "normal",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Source_Sans_Pro/SourceSansPro-Regular.ttf"
+        },
+        {
+            "font-family": "Zilla Slab",
+            "font-style": "normal",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Zilla_Slab/ZillaSlab-Bold.ttf"
+        },
+        {
+            "font-family": "Zilla Slab",
+            "font-style": "italic",
+            "font-weight": "bold",
+            "src": "/fonts/v2/Zilla_Slab/ZillaSlab-BoldItalic.ttf"
+        },
+        {
+            "font-family": "Zilla Slab",
+            "font-style": "italic",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Zilla_Slab/ZillaSlab-Italic.ttf"
+        },
+        {
+            "font-family": "Zilla Slab",
+            "font-style": "normal",
+            "font-weight": "normal",
+            "src": "/fonts/v2/Zilla_Slab/ZillaSlab-Regular.ttf"
         }
     ]
 }

@@ -8,13 +8,13 @@ import datetime, io, sys, getopt, json, os
 from fontTools import ttLib
 from collections import OrderedDict
 
-def getFamily(ttf, fRec):
+def getFamily(fRec):
     typoFamilyName = fRec['name'].getName(16, 3, 1, 1033)
     familyName = fRec['name'].getName(1, 3, 1, 1033) # FONT_SPECIFIER_FAMILY_ID=1, platformID, platEncID, langID
     family = typoFamilyName.toUnicode() if typoFamilyName else familyName.toUnicode()
     return family
 
-def getStyle(ttf, fRec):
+def getStyle(fRec):
     typoStyleName = fRec['name'].getName(17, 3, 1, 1033)
     styleName = fRec['name'].getName(2, 3, 1, 1033)
     style = typoStyleName.toUnicode() if typoStyleName else styleName.toUnicode()
@@ -24,15 +24,16 @@ def getStyle(ttf, fRec):
 def getName(fRec):
     return fRec['name'].getName(4, 3, 1, 1033) # FONT_NAME_SPECIFIER_ID=4, platformID, platEncID, langID
 
-def getWeight(ttf, fRec):
-    name = getName(fRec).toUnicode() # FONT_NAME_SPECIFIER_ID=4, platformID, platEncID, langID
+def getWeight(rPath, ttf, fRec):
+    name = getName(fRec).toUnicode().lower() # FONT_NAME_SPECIFIER_ID=4, platformID, platEncID, langID
     weight = fRec['OS/2'].usWeightClass
     weight = 'normal' if 400 == weight else 'bold' if 700 == weight else str(weight)
-    if weight == 'normal' and not 'regular' in name.lower():
-        print "Error with", ttf, "No Regular tag in font name."
+    fName = ttf.lstrip(rPath)
+    if weight == 'normal' and not ('regular' in name.lower() or 'italic' in name.lower() or 'regular' in fName.lower() or 'italic' in fName.lower()):
+        print "Error with", ttf, "No Regular tag in font name", name, 'or file name', fName
         return -1
     if weight == 'bold' and not 'bold' in name.lower():
-        print "Error with", ttf, "No Bold definer."
+        print "Error with", ttf, "No Bold definer in font name", name
         return -1
     return weight
 
@@ -43,12 +44,12 @@ def processFiles(opts, jsonData, ttfs):
         with ttLib.TTFont(ttf) as fRec:
             print "Processing:", getName(fRec)
             font = OrderedDict()
-            font["font-family"] = getFamily(ttf, fRec)
-            font["font-style"] = getStyle(ttf, fRec)
-            font["font-weight"] = getWeight(ttf, fRec)
+            font["font-family"] = getFamily(fRec)
+            font["font-style"] = getStyle(fRec)
+            font["font-weight"] = getWeight(rPath, ttf, fRec)
             font["src"] = "/fonts/v2/" + ttf.lstrip(rPath)       
             for key in font:
-                if font[key] == "-1":
+                if font[key] < 0:
                     return False
             jsonData['fonts'].append(font) 
             #print json.dumps(jsonData, indent=4, separators=(',', ': ')) 
@@ -139,7 +140,7 @@ def main(argv):
         help()
         sys.exit(2)
     opts = {
-        "dirName" : "./",
+        "dirName" : "./Updated_font_files_with_Dosis",
         "recursive" : True,
         "fixNames" : True,
         "jsonFileName" : "./fonts_v2_config_cache_config.uat1.bluescape.com.json",
